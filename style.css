@@ -1,0 +1,135 @@
+/* ==================================================
+   style.css - Portfolio Martina Ramos
+   - Bowlby One: títulos
+   - Montserrat: textos y navegación
+   Contiene: variables, reset ligero, layout, componentes
+   Responsive, accesible y con transiciones suaves
+   ================================================== */
+
+:root{
+  --bg: #ffffff;
+  --paper: #f7f5f2; /* very light beige for accents */
+  --text: #111111;
+  --muted: #7a7a7a;
+  --line: #e9e7e4;
+  --accent: #f0ebe3;
+  --radius: 10px;
+  --maxwidth: 1100px;
+}
+
+/* -------------------- Reset y base -------------------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+html{font-size:16px}
+body{
+  margin:0;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.55;
+}
+
+/* Layout container */
+.container{
+  max-width:var(--maxwidth);
+  margin:0 auto;
+  padding:2rem;
+}
+
+/* Utility helpers */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* -------------------- Header / Nav -------------------- */
+.site-header{
+  border-bottom:1px solid var(--line);
+  background:transparent;
+}
+.main-nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}
+.nav-logo{font-family:'Bowlby One', sans-serif;font-size:1.15rem;color:var(--text);text-decoration:none}
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center}
+.main-nav a{color:var(--text);text-decoration:none;font-weight:500;padding:.25rem .35rem;border-radius:6px;transition:transform .22s ease,opacity .22s ease}
+.main-nav a:hover{opacity:.9;transform:translateY(-2px)}
+
+/* Mobile nav hint (simple) */
+@media (max-width:600px){
+  .main-nav ul{display:none}
+}
+
+/* -------------------- Hero / Presentación -------------------- */
+.hero{padding:4rem 0 2rem}
+.hero-text{max-width:70ch}
+.hero-text h1{font-family:'Bowlby One', sans-serif;font-size:3.2rem;margin:.1rem 0;color:var(--text);letter-spacing:0.02em}
+.hero-text h2{font-size:1.05rem;color:var(--muted);margin:0 0 1.25rem}
+.lead{max-width:60ch;line-height:1.6;color:var(--text);margin:0 0 1rem}
+.summary{max-width:70ch;color:var(--muted);margin-bottom:1.25rem}
+.cta{display:inline-block;padding:.6rem 1rem;border:1px solid var(--text);background:transparent;color:var(--text);text-decoration:none;border-radius:6px;transition:all .25s ease}
+.cta:hover{background:var(--accent);transform:translateY(-3px)}
+
+/* -------------------- Referentes -------------------- */
+.references{padding:2rem 0}
+.references h2{font-family:'Bowlby One', sans-serif;font-size:1.35rem;margin-bottom:.5rem}
+.references p{color:var(--muted);margin:0 0 .75rem}
+.refs{display:flex;flex-wrap:wrap;gap:.6rem;padding:0;margin:0;list-style:none}
+.refs li{margin:0}
+.refs a{color:var(--text);text-decoration:none;padding:.2rem .35rem;border-radius:6px;transition:background .18s ease,transform .18s ease}
+.refs a:hover{background:var(--paper);transform:translateY(-2px)}
+
+/* -------------------- Galería -------------------- */
+.gallery{padding:2rem 0}
+.gallery h2{font-family:'Bowlby One', sans-serif;font-size:1.35rem;margin-bottom:.25rem}
+.gallery-note{color:var(--muted);margin-top:0}
+.grid-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1rem;align-items:start}
+
+.card{position:relative;overflow:hidden;border-radius:var(--radius);background:linear-gradient(180deg,transparent,rgba(0,0,0,0.03))}
+.card img{width:100%;height:320px;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .4s}
+.card figcaption{padding:.7rem 0;text-align:center;font-weight:600;color:var(--muted);font-size:.95rem}
+.card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%, rgba(0,0,0,0.08));opacity:0;transition:opacity .35s}
+.card:hover img{transform:scale(1.06);filter:contrast(1.02)}
+.card:hover::after{opacity:1}
+
+.attribution{text-align:center;color:var(--muted);margin-top:1rem;font-size:.95rem}
+
+/* -------------------- Multimedia -------------------- */
+.multimedia{padding:2rem 0}
+.multimedia h1{font-family:'Bowlby One', sans-serif;font-size:1.8rem}
+.video-wrap{max-width:900px;margin:1rem 0}
+.video-wrap iframe{width:100%;height:500px;border-radius:8px;border:0;box-shadow:0 12px 40px rgba(17,17,17,0.06);transition:transform .25s ease}
+.video-wrap:hover iframe{transform:translateY(-4px)}
+.video-link{display:inline-block;padding:1rem 1.5rem;background:var(--accent);color:var(--text);text-decoration:none;border-radius:8px;font-weight:600;transition:all .25s ease;border:1px solid var(--line)}
+.video-link:hover{background:var(--text);color:var(--bg);transform:translateY(-3px)}
+.embed-credit{color:var(--muted);font-size:.95rem;margin-top:.5rem}
+
+/* -------------------- Footer -------------------- */
+.site-footer{border-top:1px solid var(--line);padding:2rem 0;margin-top:3rem;background:transparent}
+.footer-inner p{color:var(--muted);font-size:.9rem;margin:0}
+.site-footer a{color:var(--text);text-decoration:underline}
+
+/* -------------------- Responsive adjustments -------------------- */
+@media (max-width:1000px){
+  .grid-gallery{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:600px){
+  .container{padding:1.25rem}
+  .hero-text h1{font-size:2.2rem}
+  .hero{padding:2.5rem 0 1.25rem}
+  .grid-gallery{grid-template-columns:1fr}
+  .card img{height:260px}
+  .video-wrap iframe{height:300px}
+}
+
+/* Prefers-reduced-motion */
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+
+/* Accessibility: focus styles */
+a:focus{outline:3px solid rgba(0,0,0,0.08);outline-offset:3px;border-radius:6px}
+
+/* Print-friendly */
+@media print{
+  body{background:#fff;color:#000}
+  .main-nav, .cta{display:none}
+}
